@@ -2,6 +2,7 @@
     "name": "catdesign/forms-plugin",
     "type": "october-plugin",
     "description": "Easy creation and management of forms for October CMS",
+    "license": "(LGPL-2.1-only or GPL-3.0-or-later)",
     "require": {
         "composer/installers": "~1.0",
         "sendpulse/rest-api": "~1.0"
