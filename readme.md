@@ -1,4 +1,4 @@
-## Плагин CatDesign.Forms
+## CatDesign.Forms Plugin for October CMS
 
 **Author:** Semen Kuznetsov (CatDesign Group)
 
