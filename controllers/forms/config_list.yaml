@@ -6,7 +6,7 @@
 list: $/catdesign/forms/models/form/columns.yaml
 
 # Model Class name
-modelClass: Catdesign\Forms\Models\Form
+modelClass: CatDesign\Forms\Models\Form
 
 # List Title
 title: catdesign.forms::lang.controllers.forms.list_title

@@ -1,7 +1,7 @@
-<?php namespace Catdesign\Forms\Components;
+<?php namespace CatDesign\Forms\Components;
 
-use Catdesign\Forms\Models\Form;
-use Catdesign\Forms\Models\Settings;
+use CatDesign\Forms\Models\Form;
+use CatDesign\Forms\Models\Settings;
 use Cms\Classes\ComponentBase;
 use Lang;
 use Mail;

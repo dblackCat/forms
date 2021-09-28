@@ -1,4 +1,4 @@
-<?php namespace Catdesign\Forms\Models;
+<?php namespace CatDesign\Forms\Models;
 
 use Lang;
 use Model;

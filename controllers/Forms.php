@@ -1,4 +1,4 @@
-<?php namespace Catdesign\Forms\Controllers;
+<?php namespace CatDesign\Forms\Controllers;
 
 use BackendMenu;
 use Backend\Classes\Controller;
@@ -39,6 +39,6 @@ class Forms extends Controller
     public function __construct()
     {
         parent::__construct();
-        BackendMenu::setContext('Catdesign.Forms', 'forms', 'forms');
+        BackendMenu::setContext('CatDesign.Forms', 'forms', 'forms');
     }
 }

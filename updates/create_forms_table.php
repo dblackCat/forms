@@ -1,4 +1,4 @@
-<?php namespace Catdesign\Forms\Updates;
+<?php namespace CatDesign\Forms\Updates;
 
 use Schema;
 use October\Rain\Database\Schema\Blueprint;

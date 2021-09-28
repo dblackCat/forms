@@ -9,7 +9,7 @@ name: catdesign.forms::lang.controllers.forms.item_name
 form: $/catdesign/forms/models/form/fields.yaml
 
 # Model Class name
-modelClass: Catdesign\Forms\Models\Form
+modelClass: CatDesign\Forms\Models\Form
 
 # Default redirect location
 defaultRedirect: catdesign/forms/forms

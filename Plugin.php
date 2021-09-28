@@ -1,8 +1,8 @@
-<?php namespace Catdesign\Forms;
+<?php namespace CatDesign\Forms;
 
 use Backend;
-use Catdesign\Forms\Components\Forms;
-use Catdesign\Forms\Models\Settings;
+use CatDesign\Forms\Components\Forms;
+use CatDesign\Forms\Models\Settings;
 use Event;
 use Lovata\OrdersShopaholic\Classes\Processor\OrderProcessor;
 use System\Classes\PluginBase;
