@@ -1,0 +1,36 @@
+{% if form is not empty and form.fields is not empty and id %}
+    {% if form.is_not_send %}
+        {# The built-in handler is disabled #}
+        <form action="{{ form.events.action }}" class="{{ form.classes }}">
+    {% else %}
+        {# The built-in handler is enabled #}
+        <form data-request="{{ form.events.request }}"
+              data-request-loading="{{ form.events.loading }}"
+              data-request-success="{{ form.events.success }}"
+              data-request-error="{{ form.events.error }}"
+              data-request-complete="{{ form.events.complete }}"
+              data-request-redirect="{{ form.events.redirect }}"
+              data-request-update="{{ form.events.update }}"
+              data-request-before-update="{{ form.events.before_update }}"
+              class="{{ form.form_classes }}">
+    {% endif %}
+
+            {% if form.is_hide_title == false %}
+                <h3>{{ form.title | raw }}</h3>
+                <p>{{ form.description | raw }}</p>
+            {% endif %}
+
+            <input type="hidden" name="form_id" value="{{ form.id }}">
+
+            {# Additional data #}
+            {% if additional_data is not empty %}
+                {% for data in additional_data %}
+                    <input type="hidden" name="{{ data.key }}" value="{{ data.value }}">
+                {% endfor %}
+            {% endif %}
+
+            {% partial 'Forms::fields' form=form %}
+
+            <button type="submit" class="{{ form.button_classes }}">{{ form.button_text | raw }}</button>
+        </form>
+{% endif %}

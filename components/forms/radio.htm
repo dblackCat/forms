@@ -1,0 +1,21 @@
+{% if field.disable_label == false %}
+    <h3>{{ field.label }}</h3>
+{% endif %}
+
+{% for key,item in field.value_list %}
+    <label class="radio">
+        <input id="{{ id }}-{{ field.name }}-{{ key }}"
+               type="radio"
+               value="{{ item.value }}"
+               class="{{ field.classes }}"
+               name="{{ field.name }}"
+               {{ (field.required) ? 'required' : '' }}
+               {{ (item.active) ? 'checked' : '' }}
+               onchange="{{ field.events.onchange }}"
+               onclick="{{ field.events.onclick }}">
+        <span class="radio__marker">
+            <span></span>
+        </span>
+        <span class="radio__label">{{ item.key }}</span>
+    </label>
+{% endfor %}

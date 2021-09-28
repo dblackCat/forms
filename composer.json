@@ -1,0 +1,9 @@
+{
+    "name": "catdesign/forms-plugin",
+    "type": "october-plugin",
+    "description": "Easy form constructor and sending for October CMS",
+    "require": {
+        "composer/installers": "~1.0",
+        "sendpulse/rest-api": "~1.0"
+    }
+}

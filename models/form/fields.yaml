@@ -1,0 +1,324 @@
+# ===================================
+#  Form Field Definitions
+# ===================================
+
+fields:
+    title:
+        label: catdesign.forms::lang.fields.forms.title.label
+        type: text
+        span: left
+        required: true
+        permissions: 'catdesign.forms.forms'
+    code:
+        label: catdesign.forms::lang.fields.forms.code.label
+        type: text
+        placeholder: 'Сгенерируется после создания'
+        disabled: 1
+        span: right
+        permissions: 'catdesign.forms.forms'
+    is_hide_title:
+        label: catdesign.forms::lang.fields.forms.is_hide_title.label
+        type: checkbox
+        permissions: 'catdesign.forms.dev'
+        span: left
+tabs:
+    fields:
+        admin_template:
+            label: catdesign.forms::lang.fields.forms.admin_template.label
+            type: relation
+            nameFrom: subject
+            span: left
+            comment: catdesign.forms::lang.fields.forms.admin_template.comment
+            tab: catdesign.forms::lang.tabs.general
+        user_template:
+            label: catdesign.forms::lang.fields.forms.user_template.label
+            nameFrom: subject
+            span: left
+            trigger:
+                field: is_answer
+                condition: checked
+                action: show
+            comment: catdesign.forms::lang.fields.forms.user_template.comment
+            type: relation
+            tab: catdesign.forms::lang.tabs.general
+        forward_email:
+            label: catdesign.forms::lang.fields.forms.forward_email.label
+            comment: catdesign.forms::lang.fields.forms.forward_email.comment
+            type: text
+            span: left
+            placeholder: 'example@mail.com, example@mail.com'
+            trigger:
+                field: is_forward
+                condition: checked
+                action: show
+            tab: catdesign.forms::lang.tabs.general
+        sendpulse_address_list_id:
+            label: catdesign.forms::lang.fields.forms.sendpulse_address_list_id.label
+            type: text
+            span: left
+            trigger:
+                field: is_sendpulse
+                condition: checked
+                action: show
+            tab: catdesign.forms::lang.tabs.general
+            comment: catdesign.forms::lang.fields.forms.sendpulse_address_list_id.comment
+        description:
+            label: catdesign.forms::lang.fields.forms.description.label
+            type: textarea
+            permissions: 'catdesign.forms.forms'
+            size: small
+            span: left
+            tab: catdesign.forms::lang.tabs.general
+        button_text:
+            label: catdesign.forms::lang.fields.forms.button_text.label
+            type: codeeditor
+            permissions: 'catdesign.forms.forms'
+            size: small
+            required: true
+            comment: catdesign.forms::lang.fields.forms.button_text.comment
+            span: left
+            default: catdesign.forms::lang.fields.forms.button_text.default
+            tab: catdesign.forms::lang.tabs.general
+
+        fields_section@update:
+            label: catdesign.forms::lang.fields.forms.fields_section.label
+            type: section
+            permissions: 'catdesign.forms.forms.fields'
+            comment: catdesign.forms::lang.fields.forms.fields_section.comment
+            tab: catdesign.forms::lang.tabs.fields
+        fields_helper@update:
+            type: partial
+            span: left
+            path: $/catdesign/forms/views/_fields_helper.htm
+            permissions: 'catdesign.forms.forms'
+            tab: catdesign.forms::lang.tabs.fields
+        fields@update:
+            type: partial
+            span: right
+            path: $/catdesign/forms/views/_fields.htm
+            permissions: 'catdesign.forms.forms.fields'
+            tab: catdesign.forms::lang.tabs.fields
+
+
+        events[loading]:
+            label: catdesign.forms::lang.fields.forms.events_loading.label
+            type: text
+            placeholder: '.preloader'
+            permissions: 'catdesign.forms.dev'
+            comment: catdesign.forms::lang.fields.forms.events_loading.label
+            span: left
+            trigger:
+                field: is_not_send
+                condition: checked
+                action: hide
+            tab: catdesign.forms::lang.tabs.integration
+        is_wrapper:
+            label: catdesign.forms::lang.fields.forms.is_wrapper.label
+            type: checkbox
+            default: true
+            permissions: 'catdesign.forms.dev'
+            span: right
+            comment: catdesign.forms::lang.fields.forms.is_wrapper.comment
+            tab: catdesign.forms::lang.tabs.integration
+        form_classes:
+            label: catdesign.forms::lang.fields.forms.form_classes.label
+            type: codeeditor
+            permissions: 'catdesign.forms.dev'
+            size: small
+            span: left
+            tab: catdesign.forms::lang.tabs.integration
+        field_classes:
+            label: catdesign.forms::lang.fields.forms.field_classes.label
+            type: codeeditor
+            permissions: 'catdesign.forms.dev'
+            size: small
+            span: right
+            tab: catdesign.forms::lang.tabs.integration
+        button_classes:
+            label: catdesign.forms::lang.fields.forms.button_classes.label
+            type: codeeditor
+            span: left
+            size: small
+            permissions: 'catdesign.forms.dev'
+            tab: catdesign.forms::lang.tabs.integration
+        wrapper_classes:
+            label: catdesign.forms::lang.fields.forms.wrapper_classes.label
+            type: codeeditor
+            permissions: 'catdesign.forms.dev'
+            size: small
+            trigger:
+                action: show
+                field: is_wrapper
+                condition: checked
+            span: right
+            tab: catdesign.forms::lang.tabs.integration
+
+        events_ajax_section:
+            label: catdesign.forms::lang.fields.forms.events_ajax_section.label
+            type: section
+            permissions: 'catdesign.forms.dev'
+            span: full
+            trigger:
+                field: is_not_send
+                condition: checked
+                action: hide
+            comment: catdesign.forms::lang.fields.forms.events_ajax_section.comment
+            tab: catdesign.forms::lang.tabs.events
+        events_native_section:
+            label: catdesign.forms::lang.fields.forms.events_native_section.label
+            type: section
+            permissions: 'catdesign.forms.dev'
+            span: full
+            trigger:
+                field: is_not_send
+                condition: checked
+                action: show
+            comment: catdesign.forms::lang.fields.forms.events_native_section.comment
+            tab: catdesign.forms::lang.tabs.events
+        events[request]:
+            label: catdesign.forms::lang.fields.forms.events_request.label
+            type: text
+            permissions: 'catdesign.forms.dev'
+            comment: catdesign.forms::lang.fields.forms.events_request.comment
+            placeholder: 'Forms::onSend'
+            default: 'Forms::onSend'
+            span: left
+            trigger:
+                field: is_not_send
+                condition: checked
+                action: hide
+            tab: catdesign.forms::lang.tabs.events
+        events[redirect]:
+            label: catdesign.forms::lang.fields.forms.events_redirect.label
+            type: text
+            permissions: 'catdesign.forms.dev'
+            comment: catdesign.forms::lang.fields.forms.events_redirect.comment
+            placeholder: '/page-url'
+            span: right
+            trigger:
+                field: is_not_send
+                condition: checked
+                action: hide
+            tab: catdesign.forms::lang.tabs.events
+        events[action]:
+            label: catdesign.forms::lang.fields.forms.events_action.label
+            type: text
+            placeholder: '/action-url'
+            comment: catdesign.forms::lang.fields.forms.events_action.comment
+            trigger:
+                field: is_not_send
+                condition: checked
+                action: show
+            tab: catdesign.forms::lang.tabs.events
+        events[onsubmit]:
+            label: catdesign.forms::lang.fields.forms.events_onsubmit.label
+            type: codeeditor
+            permissions: 'catdesign.forms.dev'
+            size: small
+            span: left
+            comment: catdesign.forms::lang.fields.forms.events_onsubmit.comment
+            tab: catdesign.forms::lang.tabs.events
+        events[reset]:
+            label: catdesign.forms::lang.fields.forms.events_reset.label
+            type: codeeditor
+            permissions: 'catdesign.forms.dev'
+            size: small
+            span: right
+            trigger:
+                field: is_not_send
+                condition: checked
+                action: show
+            comment: catdesign.forms::lang.fields.forms.events_reset.comment
+            tab: catdesign.forms::lang.tabs.events
+        events[success]:
+            label: catdesign.forms::lang.fields.forms.events_success.label
+            type: codeeditor
+            permissions: 'catdesign.forms.dev'
+            size: small
+            span: right
+            trigger:
+                field: is_not_send
+                condition: checked
+                action: hide
+            comment: catdesign.forms::lang.fields.forms.events_success.comment
+            tab: catdesign.forms::lang.tabs.events
+        events[complete]:
+            label: catdesign.forms::lang.fields.forms.events_complete.label
+            type: codeeditor
+            permissions: 'catdesign.forms.dev'
+            size: small
+            span: left
+            trigger:
+                field: is_not_send
+                condition: checked
+                action: hide
+            comment: catdesign.forms::lang.fields.forms.events_complete.comment
+            tab: catdesign.forms::lang.tabs.events
+        events[error]:
+            label: catdesign.forms::lang.fields.forms.events_error.label
+            type: codeeditor
+            size: small
+            permissions: 'catdesign.forms.dev'
+            span: right
+            trigger:
+                field: is_not_send
+                condition: checked
+                action: hide
+            comment: catdesign.forms::lang.fields.forms.events_error.comment
+            tab: catdesign.forms::lang.tabs.events
+        events[before_update]:
+            label: catdesign.forms::lang.fields.forms.events_before_update.label
+            type: codeeditor
+            size: small
+            permissions: 'catdesign.forms.dev'
+            span: left
+            trigger:
+                field: is_not_send
+                condition: checked
+                action: hide
+            comment: catdesign.forms::lang.fields.forms.events_before_update.comment
+            tab: catdesign.forms::lang.tabs.events
+        events[update]:
+            label: catdesign.forms::lang.fields.forms.events_update.label
+            type: codeeditor
+            size: small
+            permissions: 'catdesign.forms.dev'
+            span: right
+            trigger:
+                field: is_not_send
+                condition: checked
+                action: hide
+            comment: catdesign.forms::lang.fields.forms.events_update.comment
+            tab: catdesign.forms::lang.tabs.events
+secondaryTabs:
+    fields:
+        submit_section:
+            label: catdesign.forms::lang.fields.forms.submit_section.label
+            type: section
+        is_active:
+            label: catdesign.forms::lang.fields.forms.is_active.label
+            type: checkbox
+            permissions: 'catdesign.forms.forms'
+            default: 1
+            comment: catdesign.forms::lang.fields.forms.is_active.comment
+        is_answer:
+            label: catdesign.forms::lang.fields.forms.is_answer.label
+            type: checkbox
+            comment: catdesign.forms::lang.fields.forms.is_answer.comment
+        is_sendpulse:
+            label: catdesign.forms::lang.fields.forms.is_sendpulse.label
+            type: checkbox
+            comment: catdesign.forms::lang.fields.forms.is_sendpulse.comment
+        is_forward:
+            label: catdesign.forms::lang.fields.forms.is_forward.label
+            type: checkbox
+            comment: catdesign.forms::lang.fields.forms.is_forward.comment
+        is_not_send:
+            label: catdesign.forms::lang.fields.forms.is_not_send.label
+            permissions: 'catdesign.forms.dev'
+            type: checkbox
+            comment: catdesign.forms::lang.fields.forms.is_not_send.comment
+
+
+
+

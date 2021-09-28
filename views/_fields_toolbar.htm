@@ -1,0 +1,15 @@
+<div data-control="toolbar" data-disposable="">
+    <?php if ($this->user->hasAccess('catdesign.forms.dev')): ?>
+        <a data-control="popup" data-size="huge" data-handler="onRelationButtonCreate" href="javascript:;" class="btn btn-sm btn-secondary">
+            <i class="octo-icon-create"></i>
+            <?= e(trans('catdesign.forms::lang.fields.forms.fields_toolbar.create_button')) ?>
+        </a>
+
+        <button class="btn btn-sm btn-secondary control-disabled" onclick="$(this).data('request-data', {
+                checked: $('#Forms-update-RelationController-fields-view .control-list').listWidget('getChecked')
+            })" disabled="" data-request="onRelationButtonDelete" data-request-confirm="<?= e(trans('backend::lang.form.confirm_delete')) ?>" data-request-success="$.oc.relationBehavior.changed('fields', 'deleted')" data-trigger-action="enable" data-trigger="#Forms-update-RelationController-fields-view .control-list tbody input[type=checkbox]" data-trigger-condition="checked" data-stripe-load-indicator="">
+            <i class="octo-icon-delete"></i>
+            <?= e(trans('catdesign.forms::lang.fields.forms.fields_toolbar.remove_button')) ?>
+        </button>
+    <?php endif; ?>
+</div>

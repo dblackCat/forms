@@ -1,0 +1,34 @@
+{% set fields = form.fields %}
+
+{% for field in fields %}
+    {# Field wrapper start #}
+    {% if form.is_wrapper and field.type != 'hidden' %}
+        <div class="{{ form.wrapper_classes }} {{ field.wrapper_classes }}">
+    {% endif %}
+
+        {% if field.type == 'hidden' %}
+            {% partial 'Forms::hidden' field=field %}
+        {% elseif field.type == 'select' %}
+            {% partial 'Forms::select' field=field %}
+        {% elseif field.type == 'radio' %}
+            {% partial 'Forms::radio' field=field %}
+        {% elseif field.type == 'checkbox' %}
+            {% partial 'Forms::checkbox' field=field %}
+        {% elseif field.type == 'textarea' %}
+            {% partial 'Forms::textarea' field=field %}
+        {% elseif field.type == 'number' %}
+            {% partial 'Forms::number' field=field %}
+        {% else %}
+            {% partial 'Forms::text' field=field %}
+        {% endif %}
+
+        {# Field comment #}
+        {% if field.comment is not empty %}
+            <p>{{ field.comment | raw }}</p>
+        {% endif %}
+
+    {# Field wrapper stop #}
+    {% if form.is_wrapper and field.type != 'hidden' %}
+        </div>
+    {% endif %}
+{% endfor %}

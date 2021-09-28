@@ -1,0 +1,31 @@
+# ===================================
+#  Form Behavior Config
+# ===================================
+
+# Record name
+name: catdesign.forms::lang.controllers.forms.item_name
+
+# Model Form Field configuration
+form: $/catdesign/forms/models/form/fields.yaml
+
+# Model Class name
+modelClass: Catdesign\Forms\Models\Form
+
+# Default redirect location
+defaultRedirect: catdesign/forms/forms
+
+# Create page
+create:
+    title: backend::lang.form.create_title
+    redirect: catdesign/forms/forms/update/:id
+    redirectClose: catdesign/forms/forms
+
+# Update page
+update:
+    title: backend::lang.form.update_title
+    redirect: catdesign/forms/forms
+    redirectClose: catdesign/forms/forms
+
+# Preview page
+preview:
+    title: backend::lang.form.preview_title

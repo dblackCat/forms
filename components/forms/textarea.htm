@@ -1,0 +1,12 @@
+{% if field.disable_label == false %}
+    <label for="{{ id }}-{{ field.name }}">{{ field.label }}</label>
+{% endif %}
+<textarea id="{{ id }}-{{ field.name }}"
+          name="{{ field.name }}"
+          class="{{ form.field_classes }} {{ field.classes }}"
+          onchange="{{ field.events.onchange }}"
+          onclick="{{ field.events.onclick }}"
+          oninput="{{ field.events.oninput }}"
+          onkeyup="{{ field.events.onkeyup }}"
+          {{ (field.required) ? 'required' : '' }}
+          placeholder="{{ field.attribute.placeholder }}">{{ field.attribute.value }}</textarea>

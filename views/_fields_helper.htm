@@ -1,0 +1,60 @@
+<div class="field-section">
+    <h4><?= e(trans('catdesign.forms::lang.fields.forms.fields_helper.title')) ?></h4>
+</div>
+
+<div>
+    <?php if ($model->fields->count() > 0) : ?>
+        <div class="catdesign-var-list">
+            <?php foreach($model->fields as $field) : ?>
+                <a href="#" onclick="copyText(this); return false;" class="catdesign-var-list__item" title="Copy">
+                    <?= $field->label ?> - {{ <?= $field->name ?> }}
+                </a>
+            <?php endforeach; ?>
+        </div>
+        <p class="help-block">
+            <?= e(trans('catdesign.forms::lang.fields.forms.fields_helper.message')) ?>
+            <a href="/backend/system/mailtemplates" target="_blank"><?= e(trans('catdesign.forms::lang.fields.forms.fields_helper.link')) ?></a>
+        </p>
+    <?php else : ?>
+        <p class="help-block"><?= e(trans('catdesign.forms::lang.fields.forms.fields_helper.empty')) ?></p>
+    <?php endif; ?>
+</div>
+
+<script>
+    function copyText(element) {
+        let temp = $("<textarea>"),
+            text = $(element).text()
+        $("body").append(temp);
+        temp.val(text).select();
+        document.execCommand("copy");
+        temp.remove();
+
+        $(element).text("<?= e(trans('catdesign.forms::lang.fields.forms.fields_helper.copy')) ?>");
+
+        setTimeout(function () {
+            $(element).text(text);
+        }, 1000)
+    }
+</script>
+
+<style>
+    .catdesign-var-list {
+        margin-top: 1rem;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 1rem;
+    }
+    .catdesign-var-list__item {
+        border-radius: 5px;
+        background: #8284f8;
+        padding: 0.3rem 0.7rem;
+        color: #fff;
+        border-bottom: 2px solid #6f70d3;
+    }
+    .catdesign-var-list__item:hover, .catdesign-var-list__item:focus {
+        text-decoration: none;
+        color: #fff;
+        background: #6a6cf7;
+        border-color: #6a6cf7;
+    }
+</style>

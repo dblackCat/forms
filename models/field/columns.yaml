@@ -1,0 +1,19 @@
+# ===================================
+#  List Column Definitions
+# ===================================
+
+columns:
+    id:
+        label: ID
+    label:
+        label: catdesign.forms::lang.columns.fields.label.label
+        type: text
+    required:
+        label: catdesign.forms::lang.columns.fields.required.label
+        type: switch
+    name:
+        label: catdesign.forms::lang.columns.fields.name.label
+        type: text
+    type:
+        label: catdesign.forms::lang.columns.fields.type.label
+        type: text

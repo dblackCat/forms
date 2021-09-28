@@ -1,0 +1,226 @@
+# ===================================
+#  Form Field Definitions
+# ===================================
+fields:
+    label:
+        label: catdesign.forms::lang.fields.fields.label.label
+        type: text
+        span: left
+        required: 1
+    name:
+        label: catdesign.forms::lang.fields.fields.name.label
+        type: text
+        placeholder: catdesign.forms::lang.fields.fields.name.placeholder
+        disabled: 1
+        span: right
+    required:
+        label: catdesign.forms::lang.fields.fields.required.label
+        type: checkbox
+        span: left
+        trigger:
+            action: hide
+            field: type
+            condition: 'value[hidden]'
+        comment: catdesign.forms::lang.fields.fields.required.comment
+    disable_label:
+        label: catdesign.forms::lang.fields.fields.disable_label.label
+        type: checkbox
+        permissions: 'catdesign.forms.dev'
+        span: right
+        trigger:
+            action: hide
+            field: type
+            condition: 'value[hidden]'
+        comment: catdesign.forms::lang.fields.fields.disable_label.comment
+tabs:
+    fields:
+        type:
+            label: catdesign.forms::lang.fields.fields.type.label
+            type: dropdown
+            required: 1
+            span: left
+            comment: catdesign.forms::lang.fields.fields.type.comment
+            options:
+                hidden: hidden
+                text: text
+                email: email
+                number: number
+                textarea: textarea
+                checkbox: checkbox
+                select: select
+                radio: radio
+            tab: catdesign.forms::lang.tabs.general
+        attribute[value]:
+            label: catdesign.forms::lang.fields.fields.attribute_value.label
+            type: text
+            span: right
+            comment: catdesign.forms::lang.fields.fields.attribute_value.comment
+            trigger:
+                action: hide
+                field: type
+                condition: 'value[checkbox], value[radio], value[select]'
+            tab: catdesign.forms::lang.tabs.general
+        attribute[boolean_value]:
+            label: catdesign.forms::lang.fields.fields.attribute_boolean_value.label
+            type: checkbox
+            span: right
+            trigger:
+                action: show
+                field: type
+                condition: 'value[checkbox]'
+            comment: catdesign.forms::lang.fields.fields.attribute_boolean_value.comment
+            tab: catdesign.forms::lang.tabs.general
+        attribute[min]:
+            label: catdesign.forms::lang.fields.fields.attribute_min.label
+            type: number
+            span: left
+            placeholder: '100'
+            trigger:
+                action: show
+                field: type
+                condition: 'value[number]'
+            tab: catdesign.forms::lang.tabs.general
+        attribute[max]:
+            label: catdesign.forms::lang.fields.fields.attribute_max.label
+            type: number
+            span: right
+            placeholder: '1000'
+            trigger:
+                action: show
+                field: type
+                condition: 'value[number]'
+            tab: catdesign.forms::lang.tabs.general
+        attribute[placeholder]:
+            label: catdesign.forms::lang.fields.fields.attribute_placeholder.label
+            type: text
+            span: left
+            comment: catdesign.forms::lang.fields.fields.attribute_placeholder.comment
+            trigger:
+                action: hide
+                field: type
+                condition: 'value[hidden], value[submit], value[checkbox], value[radio], value[select]'
+            tab: catdesign.forms::lang.tabs.general
+        comment:
+            label: catdesign.forms::lang.fields.fields.comment.label
+            type: textarea
+            span: right
+            size: small
+            trigger:
+                action: hide
+                field: type
+                condition: 'value[hidden]'
+            tab: catdesign.forms::lang.tabs.general
+
+        classes:
+            label: catdesign.forms::lang.fields.fields.classes.label
+            type: codeeditor
+            comment: catdesign.forms::lang.fields.fields.classes.comment
+            span: left
+            size: small
+            permissions: 'catdesign.forms.dev'
+            tab: catdesign.forms::lang.tabs.integration
+        wrapper_classes:
+            label: catdesign.forms::lang.fields.fields.wrapper_classes.label
+            type: codeeditor
+            comment: catdesign.forms::lang.fields.fields.wrapper_classes.comment
+            span: right
+            permissions: 'catdesign.forms.dev'
+            size: small
+            trigger:
+                action: hide
+                field: type
+                condition: 'value[hidden]'
+            tab: catdesign.forms::lang.tabs.integration
+
+        value_list:
+            label: catdesign.forms::lang.fields.fields.value_list.label
+            type: repeater
+            comment: catdesign.forms::lang.fields.fields.value_list.comment
+            span: full
+            prompt: catdesign.forms::lang.fields.fields.value_list.prompt
+            form:
+                fields:
+                    key:
+                        label: catdesign.forms::lang.fields.fields.value_list.fields.key.label
+                        type: text
+                        span: left
+                    value:
+                        label: catdesign.forms::lang.fields.fields.value_list.fields.value.label
+                        type: text
+                        span: right
+                    active:
+                        label: catdesign.forms::lang.fields.fields.value_list.fields.active.label
+                        type: switch
+                        comment: catdesign.forms::lang.fields.fields.value_list.fields.active.comment
+            trigger:
+                action: show
+                field: type
+                condition: 'value[select], value[radio]'
+            tab: catdesign.forms::lang.tabs.value_list
+
+
+        events_native_section:
+            label: catdesign.forms::lang.fields.fields.events_native_section.label
+            comment: catdesign.forms::lang.fields.fields.events_native_section.comment
+            type: section
+            permissions: 'catdesign.forms.dev'
+            trigger:
+                action: hide
+                field: type
+                condition: 'value[hidden]'
+            tab: catdesign.forms::lang.tabs.events
+        events[onclick]:
+            label: catdesign.forms::lang.fields.fields.events_onclick.label
+            type: codeeditor
+            size: small
+            span: left
+            permissions: 'catdesign.forms.dev'
+            comment: catdesign.forms::lang.fields.fields.events_onclick.comment
+            trigger:
+                action: hide
+                field: type
+                condition: 'value[hidden]'
+            tab: catdesign.forms::lang.tabs.events
+        events[onkeyup]:
+            label: catdesign.forms::lang.fields.fields.events_onkeyup.label
+            type: codeeditor
+            span: right
+            size: small
+            permissions: 'catdesign.forms.dev'
+            comment: catdesign.forms::lang.fields.fields.events_onkeyup.comment
+            trigger:
+                action: show
+                field: type
+                condition: 'value[text], value[number], value[textarea], value[email]'
+            tab: catdesign.forms::lang.tabs.events
+        events[oninput]:
+            label: catdesign.forms::lang.fields.fields.events_oninput.label
+            type: codeeditor
+            span: left
+            size: small
+            permissions: 'catdesign.forms.dev'
+            comment: catdesign.forms::lang.fields.fields.events_oninput.comment
+            trigger:
+                action: show
+                field: type
+                condition: 'value[text], value[number], value[textarea], value[email]'
+            tab: catdesign.forms::lang.tabs.events
+        events[onchange]:
+            label: catdesign.forms::lang.fields.fields.events_onchange.label
+            type: codeeditor
+            span: right
+            size: small
+            permissions: 'catdesign.forms.dev'
+            comment: catdesign.forms::lang.fields.fields.events_onchange.comment
+            trigger:
+                action: hide
+                field: type
+                condition: 'value[hidden], value[submit]'
+            tab: catdesign.forms::lang.tabs.events
+
+
+
+
+
+
+

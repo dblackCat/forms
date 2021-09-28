@@ -1,0 +1,13 @@
+<label class="checkbox">
+    <input id="{{ id }}-{{ field.name }}"
+           type="checkbox"
+           class="{{ field.classes }}"
+           name="{{ field.name }}"
+           {{ (field.attribute.boolean_value) ? 'checked' : '' }}
+           onchange="{{ field.events.onchange }}"
+           onclick="{{ field.events.onclick }}">
+    <span class="checkbox__marker">
+        <span></span>
+    </span>
+    <span class="checkbox__label">{{ field.label }}</span>
+</label>

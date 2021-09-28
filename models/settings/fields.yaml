@@ -1,0 +1,93 @@
+# ===================================
+#  Form Field Definitions
+# ===================================
+
+tabs:
+    fields:
+        manager_emails:
+            label: catdesign.forms::lang.fields.settings.manager_emails.label
+            comment: catdesign.forms::lang.fields.settings.manager_emails.comment
+            type: text
+            required: 1
+            placeholder: 'example@mail.com, example@mail.com, example@mail.com'
+            span: left
+            tab: catdesign.forms::lang.tabs.general
+        sendpulse_section:
+            label: catdesign.forms::lang.fields.settings.sendpulse_section.label
+            type: section
+            permissions: 'catdesign.forms.dev'
+            span: full
+            tab: catdesign.forms::lang.tabs.sendpulse
+            comment: catdesign.forms::lang.fields.settings.sendpulse_section.comment
+        api_user_id:
+            label: catdesign.forms::lang.fields.settings.api_user_id.label
+            type: text
+            permissions: 'catdesign.forms.dev'
+            span: left
+            tab: catdesign.forms::lang.tabs.sendpulse
+        api_secret:
+            label: catdesign.forms::lang.fields.settings.api_secret.label
+            type: text
+            permissions: 'catdesign.forms.dev'
+            span: right
+            tab: catdesign.forms::lang.tabs.sendpulse
+        enable_sendpulse_shopaholic:
+            label: catdesign.forms::lang.fields.settings.enable_sendpulse_shopaholic.label
+            type: switch
+            permissions: 'catdesign.forms.dev'
+            span: left
+            tab: catdesign.forms::lang.tabs.sendpulse
+            comment: catdesign.forms::lang.fields.settings.enable_sendpulse_shopaholic.comment
+        sendpulse_shopahilic_address_book_id:
+            label: catdesign.forms::lang.fields.settings.sendpulse_shopahilic_address_book_id.label
+            type: text
+            permissions: 'catdesign.forms.dev'
+            span: right
+            tab: catdesign.forms::lang.tabs.sendpulse
+            trigger:
+                field: enable_sendpulse_shopaholic
+                condition: checked
+                action: show
+            comment: catdesign.forms::lang.fields.settings.sendpulse_shopahilic_address_book_id.comment
+        section_sendpulse_data:
+            label: catdesign.forms::lang.fields.settings.section_sendpulse_data.label
+            type: section
+            span: full
+            permissions: 'catdesign.forms.dev'
+            trigger:
+                field: enable_sendpulse_shopaholic
+                condition: checked
+                action: show
+            comment: catdesign.forms::lang.fields.settings.section_sendpulse_data.comment
+            tab: catdesign.forms::lang.tabs.sendpulse
+        sendpulse_name:
+            label: catdesign.forms::lang.fields.settings.sendpulse_name.label
+            type: dropdown
+            span: left
+            permissions: 'catdesign.forms.dev'
+            trigger:
+                field: enable_sendpulse_shopaholic
+                condition: checked
+                action: show
+            tab: catdesign.forms::lang.tabs.sendpulse
+        sendpulse_phone:
+            label: catdesign.forms::lang.fields.settings.sendpulse_phone.label
+            type: dropdown
+            span: right
+            permissions: 'catdesign.forms.dev'
+            trigger:
+                field: enable_sendpulse_shopaholic
+                condition: checked
+                action: show
+            tab: catdesign.forms::lang.tabs.sendpulse
+        sendpulse_email:
+            label: catdesign.forms::lang.fields.settings.sendpulse_email.label
+            type: dropdown
+            span: left
+            permissions: 'catdesign.forms.dev'
+            trigger:
+                field: enable_sendpulse_shopaholic
+                condition: checked
+                action: show
+            tab: catdesign.forms::lang.tabs.sendpulse
+

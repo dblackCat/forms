@@ -1,0 +1,9 @@
+fields:
+    label: "поля"
+    manage:
+        form: $/catdesign/forms/models/field/fields.yaml
+        list: $/catdesign/forms/models/field/columns.yaml
+    view:
+        list: $/catdesign/forms/models/field/columns.yaml
+        toolbarButtons: create|delete
+        toolbarPartial: $/catdesign/forms/views/_fields_toolbar.htm

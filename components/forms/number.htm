@@ -1,0 +1,16 @@
+{% if field.disable_label == false %}
+    <label for="{{ id }}-{{ field.name }}">{{ field.label }}</label>
+{% endif %}
+<input type="number"
+       id="{{ id }}-{{ field.name }}"
+       name="{{ field.name }}"
+       class="{{ form.field_classes }} {{ field.classes }}"
+       onchange="{{ field.events.onchange }}"
+       onclick="{{ field.events.onclick }}"
+       oninput="{{ field.events.oninput }}"
+       min="{{ field.attribute.min }}"
+       max="{{ field.attribute.max }}"
+       onkeyup="{{ field.events.onkeyup }}"
+       {{ (field.required) ? 'required' : '' }}
+       placeholder="{{ field.attribute.placeholder }}"
+       value="{{ field.attribute.value }}">
