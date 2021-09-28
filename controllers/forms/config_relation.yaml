@@ -1,5 +1,5 @@
 fields:
-    label: "поля"
+    label: catdesign.forms::lang.controllers.forms.field_item
     manage:
         form: $/catdesign/forms/models/field/fields.yaml
         list: $/catdesign/forms/models/field/columns.yaml

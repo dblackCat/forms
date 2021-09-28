@@ -29,6 +29,7 @@ return [
     ],
     'controllers' => [
         'forms' => [
+            'field_item'            => 'field',
             'list_title'            => 'Managing forms',
             'item_name'             => 'Form',
             'create_toolbar_button' => 'Create form',
