@@ -25,9 +25,13 @@ on your shoulders. The plugin has a built-in form handler that supports all the 
 The plugin has built-in integration with the SendPulse mailing service. Additionally
 , SendPulse integration with the Lovata.OrdersForShopaholic plugin is built in.
 
-Attention! Do not give customers full root access to the system, otherwise they may disrupt
+**Attention!** Do not give customers full root access to the system, otherwise they may disrupt
 the plugin by making incorrect settings. The rights are prepared in the plugin. Create a new
 user and assign - **Manager permission**.
+
+### Installing witch composer
+
+`composer require catdesign/forms-plugin`
 
 ### Getting forms
 
@@ -66,7 +70,7 @@ If necessary, you can **pass additional data to the form**.
 
 They will be printed in hidden fields.
 
-Important! It is necessary to pass the mandatory parameter 'id= 'html_id" it is necessary to avoid conflicts
+Important! It is necessary to pass the mandatory parameter **id="html_id"** it is necessary to avoid conflicts
 if several identical forms are called on the same page. You can pass
 any string that matches the name of the html identifier.
 
@@ -74,7 +78,7 @@ any string that matches the name of the html identifier.
 
 `{% partial 'Forms::fields' id='test' form=form %}`
 
-Sometimes such a call is necessary if your form requires increased customization.
+Sometimes such a call is necessary if your form requires to be increased customization.
 With such a call, you need to independently implement events and pass basic
 data in the handler, such as`form_id'.
 
@@ -118,9 +122,13 @@ This is the way you can print a field with the email name without printing the e
 В плагине встроена интеграция с сервисом рассылки SendPulse. Дополнительно встроена
 интеграция SendPulse с плагином Lovata.OrdersForShopaholic.
 
-Внимание! Не отдавайте заказчикам полный root доступ к системе, иначе они могут нарушить
+**Внимание!** Не отдавайте заказчикам полный root доступ к системе, иначе они могут нарушить
 работу плагина внеся некорректные настройки. В плагине подготовлены права. Создайте нового
 пользователя и назначьте - **Разрешение менеджера**.
+
+### Установка через composer
+
+`composer require catdesign/forms-plugin`
 
 ### Получение форм
 
@@ -159,7 +167,7 @@ This is the way you can print a field with the email name without printing the e
 
 Они будут распечатаны в hidden полях.
 
-Важно! Необходимо передать обязательный параметр `id='html_id'` он необходим, что бы избежать конфликтов
+Важно! Необходимо передать обязательный параметр **id='html_id'** он необходим, что бы избежать конфликтов
 если будет вызвано несколько одинаковых форм на одной странице. Передать можно
 любую строку, которая будет соответствовать имени идентификатора html.
 
