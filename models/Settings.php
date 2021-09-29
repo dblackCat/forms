@@ -46,11 +46,17 @@ class Settings extends Model
     public function getDropdownOptions($fieldName, $value, $formData) : array
     {
         $options = [null => Lang::get('catdesign.forms::lang.validation.settings_model.empty_dropdown')];
-        $property_models = OrderProperty::get();
 
-        foreach ($property_models as $property) {
-            $options[$property->code] = $property->name;
+        if (class_exists('OrderProperty')) {
+            $property_models = OrderProperty::get();
+
+            foreach ($property_models as $property) {
+                $options[$property->code] = $property->name;
+            }
+        } else {
+            $options[null] = 'Не установлен OrdersForShopaholic';
         }
+
         return $options;
     }
 }

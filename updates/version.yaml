@@ -10,3 +10,5 @@
     - Added fields for selecting the properties of a shopaholic order to send to SendPulse
     - Added additional validations in the Settings and Form models
     - Added the properties (jsonable) column to the model tables
+1.0.4:
+    - Fixed a bug with the absence of OrdersFormShopaholic

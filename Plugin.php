@@ -148,7 +148,7 @@ class Plugin extends PluginBase
     {
         $this->settings = Settings::instance();
 
-        if ($this->settings->enable_sendpulse_shopaholic) {
+        if ($this->settings->enable_sendpulse_shopaholic and class_exists('OrderProcessor')) {
             Event::listen(OrderProcessor::EVENT_UPDATE_ORDER_AFTER_CREATE, function($order) {
                 $forms = new Forms();
                 $name  = $order->property[$this->settings->sendpulse_name]  ?? '';
