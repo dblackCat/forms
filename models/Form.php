@@ -139,14 +139,19 @@ class Form extends Model
     private function validateIsAnswer()
     {
         if ($this->is_answer and $this->fields->count() > 0) {
+            $is_validate = false;
+
             foreach ($this->fields as $field) {
                 if ($field->type == 'email') {
-                    return true;
-                } else {
-                    throw new ValidationException([
-                        'message' => Lang::get('catdesign.forms::lang.validation.form_model.is_answer')
-                    ]);
+                    $is_validate = true;
+                    break;
                 }
+            }
+
+            if (!$is_validate) {
+                throw new ValidationException([
+                    'message' => Lang::get('catdesign.forms::lang.validation.form_model.is_answer')
+                ]);
             }
         }
     }

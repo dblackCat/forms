@@ -29,7 +29,7 @@ return [
     ],
     'controllers' => [
         'forms' => [
-            'field_item'            => 'поле',
+            'field_item'            => 'Поле',
             'list_title'            => 'Управление формами',
             'item_name'             => 'Форма',
             'create_toolbar_button' => 'Создать форму',
