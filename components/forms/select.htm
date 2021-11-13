@@ -1,10 +1,10 @@
 {% if field.disable_label == false %}
-    <label for="{{ id }}-{{ field.name }}">{{ field.label }}</label>
+    <label for="{{ field_id }}">{{ field.label }}</label>
 {% endif %}
 
-<select id="{{ id }}-{{ field.name }}"
+<select id="{{ field_id }}"
         name="{{ field.name }}"
-        class="{{ form.field_classes }} {{ field.classes }}"
+        class="{{ classes }} {{ form.field_classes }} {{ field.classes }}"
         onchange="{{ field.events.onchange }}"
         onclick="{{ field.events.onclick }}"
         {{ (field.required) ? 'required' : '' }}>

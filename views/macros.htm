@@ -1,0 +1,170 @@
+{# Open form #}
+{% macro open(id, form, classes, additional_data) %}
+    {% if form.is_not_send %}
+        <form id="{{ id }}" action="{{ form.events.action }}" class="{{ classes }} {{ form.classes }}">
+    {% else %}
+        <form id="{{ id }}" data-request="{{ form.events.request }}"
+        data-request-loading="{{ form.events.loading }}"
+        data-request-success="{{ form.events.success }}"
+        data-request-error="{{ form.events.error }}"
+        data-request-complete="{{ form.events.complete }}"
+        data-request-redirect="{{ form.events.redirect }}"
+        data-request-update="{{ form.events.update }}"
+        data-request-before-update="{{ form.events.before_update }}"
+        class="{{ classes }} {{ form.form_classes }}">
+    {% endif %}
+
+    <input type="hidden" name="form_id" value="{{ form.id }}">
+
+    {% if additional_data is not empty %}
+        {% for key, value in additional_data %}
+            <input type="hidden" name="{{ key }}" value="{{ value }}">
+        {% endfor %}
+    {% endif %}
+{% endmacro %}
+
+
+{# Render form title #}
+{% macro title(form, title_classes, description_classes) %}
+    {% if form.is_hide_title == false %}
+        <h3 class="{{ title_classes }}">{{ form.title | raw }}</h3>
+        {% if form.description %}
+            <p class="{{ description_classes }}">{{ form.description | raw }}</p>
+        {% endif %}
+    {% endif %}
+{% endmacro %}
+
+
+{# Close form #}
+{% macro close() %}
+    </form>
+{% endmacro %}
+
+
+{# Render all fields #}
+{% macro fields(form, wrapper_classes) %}
+    {% for field in form.fields %}
+        {# Field wrapper start #}
+        {% if form.is_wrapper and field.type != 'hidden' %}
+            <div class="{{ wrapper_classes }} {{ form.wrapper_classes }} {{ field.wrapper_classes }}">
+        {% endif %}
+
+        {% if field.type == 'hidden' %}
+            {% partial 'Forms::hidden' field=field form=form %}
+        {% elseif field.type == 'select' %}
+            {% partial 'Forms::select' field=field form=form %}
+        {% elseif field.type == 'radio' %}
+            {% partial 'Forms::radio' field=field form=form %}
+        {% elseif field.type == 'checkbox' %}
+            {% partial 'Forms::checkbox' field=field form=form %}
+        {% elseif field.type == 'textarea' %}
+            {% partial 'Forms::textarea' field=field form=form %}
+        {% elseif field.type == 'number' %}
+            {% partial 'Forms::number' field=field form=form %}
+        {% else %}
+            {% partial 'Forms::text' field=field form=form %}
+        {% endif %}
+
+        {# Field wrapper stop #}
+        {% if form.is_wrapper and field.type != 'hidden' %}
+            </div>
+        {% endif %}
+    {% endfor %}
+{% endmacro %}
+
+
+{# Render hidden field #}
+{% macro hidden(form, field_code, classes, field_id) %}
+    {% set field = form.getFieldByName(field_code) %}
+    {% partial 'Forms::hidden' field_id=field_id form=form field=field classes=classes %}
+{% endmacro %}
+
+
+{# Render text field #}
+{% macro text(form, field_code, classes, wrapper_classes, field_id) %}
+    {% set field = form.getFieldByName(field_code) %}
+    {% if form.is_wrapper %}
+        <div class="{{ wrapper_classes }} {{ form.wrapper_classes }} {{ field.wrapper_classes }}">
+    {% endif %}
+        {% partial 'Forms::text' field_id=field_id form=form field=field classes=classes %}
+    {% if form.is_wrapper %}
+        </div>
+    {% endif %}
+{% endmacro %}
+
+
+{# Render select field #}
+{% macro select(form, field_code, classes, wrapper_classes, field_id) %}
+    {% set field = form.getFieldByName(field_code) %}
+    {% if form.is_wrapper %}
+        <div class="{{ wrapper_classes }} {{ form.wrapper_classes }} {{ field.wrapper_classes }}">
+    {% endif %}
+        {% partial 'Forms::select' field_id=field_id form=form field=field classes=classes %}
+    {% if form.is_wrapper %}
+        </div>
+    {% endif %}
+{% endmacro %}
+
+
+{# Render number field #}
+{% macro number(form, field_code, classes, wrapper_classes, field_id) %}
+    {% set field = form.getFieldByName(field_code) %}
+    {% if form.is_wrapper %}
+        <div class="{{ wrapper_classes }} {{ form.wrapper_classes }} {{ field.wrapper_classes }}">
+    {% endif %}
+        {% partial 'Forms::number' field_id=field_id form=form field=field classes=classes %}
+    {% if form.is_wrapper %}
+        </div>
+    {% endif %}
+{% endmacro %}
+
+
+{# Render checkbox field #}
+{% macro checkbox(form, field_code, classes, wrapper_classes, field_id) %}
+    {% set field = form.getFieldByName(field_code) %}
+    {% if form.is_wrapper %}
+        <div class="{{ wrapper_classes }} {{ form.wrapper_classes }} {{ field.wrapper_classes }}">
+    {% endif %}
+        {% partial 'Forms::checkbox' field_id=field_id form=form field=field classes=classes %}
+    {% if form.is_wrapper %}
+        </div>
+    {% endif %}
+{% endmacro %}
+
+
+{# Render radio field #}
+{% macro radio(form, field_code, classes, wrapper_classes, field_id) %}
+    {% set field = form.getFieldByName(field_code) %}
+    {% if form.is_wrapper %}
+        <div class="{{ wrapper_classes }} {{ form.wrapper_classes }} {{ field.wrapper_classes }}">
+    {% endif %}
+        {% partial 'Forms::radio' field_id=field_id form=form field=field classes=classes %}
+    {% if form.is_wrapper %}
+        </div>
+    {% endif %}
+{% endmacro %}
+
+
+{# Render textarea field #}
+{% macro textarea(form, field_code, classes, wrapper_classes, field_id) %}
+    {% set field = form.getFieldByName(field_code) %}
+    {% if form.is_wrapper %}
+        <div class="{{ wrapper_classes }} {{ form.wrapper_classes }} {{ field.wrapper_classes }}">
+    {% endif %}
+        {% partial 'Forms::textarea' field_id=field_id form=form field=field classes=classes %}
+    {% if form.is_wrapper %}
+        </div>
+    {% endif %}
+{% endmacro %}
+
+
+{# Render submit button #}
+{% macro submit(form, classes, wrapper_classes, field_id) %}
+    {% if wrapper_classes %}
+        <div class="{{ wrapper_classes }}">
+    {% endif %}
+        <button id="{{ field_id }}" type="submit" class="{{ classes }} {{ form.button_classes }}">{{ form.button_text | raw }}</button>
+    {% if wrapper_classes %}
+        </div>
+    {% endif %}
+{% endmacro %}

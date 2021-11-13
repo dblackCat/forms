@@ -12,3 +12,5 @@
     - Added the properties (jsonable) column to the model tables
 1.0.4:
     - Fixed a bug with the absence of OrdersFormShopaholic
+1.0.5:
+    - Big update. Macros have been added for more convenient and flexible rendering of forms

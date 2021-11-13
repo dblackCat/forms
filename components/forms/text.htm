@@ -1,11 +1,11 @@
 {% if field.disable_label == false %}
-    <label for="{{ id }}-{{ field.name }}">{{ field.label }}</label>
+    <label for="{{ field_id }}">{{ field.label }}</label>
 {% endif %}
 
-<input id="{{ id }}-{{ field.name }}"
+<input id="{{ field_id }}"
        type="{{ field.type }}"
        name="{{ field.name }}"
-       class="{{ form.field_classes }} {{ field.classes }}"
+       class="{{ classes }} {{ form.field_classes }} {{ field.classes }}"
        onchange="{{ field.events.onchange }}"
        onclick="{{ field.events.onclick }}"
        oninput="{{ field.events.oninput }}"

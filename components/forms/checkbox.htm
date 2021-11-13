@@ -1,7 +1,7 @@
 <label class="checkbox">
-    <input id="{{ id }}-{{ field.name }}"
+    <input id="{{ field_id }}"
            type="checkbox"
-           class="{{ field.classes }}"
+           class="{{ classes }} {{ field.classes }}"
            name="{{ field.name }}"
            {{ (field.attribute.boolean_value) ? 'checked' : '' }}
            onchange="{{ field.events.onchange }}"

@@ -1,10 +1,11 @@
-{% if form is not empty and form.fields is not empty and id %}
+{% if form is not empty and form.fields is not empty %}
     {% if form.is_not_send %}
         {# The built-in handler is disabled #}
         <form action="{{ form.events.action }}" class="{{ form.classes }}">
     {% else %}
         {# The built-in handler is enabled #}
-        <form data-request="{{ form.events.request }}"
+        <form id="{{ id }}"
+              data-request="{{ form.events.request }}"
               data-request-loading="{{ form.events.loading }}"
               data-request-success="{{ form.events.success }}"
               data-request-error="{{ form.events.error }}"
@@ -24,10 +25,11 @@
 
             {# Additional data #}
             {% if additional_data is not empty %}
-                {% for data in additional_data %}
-                    <input type="hidden" name="{{ data.key }}" value="{{ data.value }}">
+                {% for key, value in additional_data %}
+                    <input type="hidden" name="{{ key }}" value="{{ value }}">
                 {% endfor %}
             {% endif %}
+
 
             {% partial 'Forms::fields' form=form %}
 
