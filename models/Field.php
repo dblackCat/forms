@@ -1,6 +1,8 @@
 <?php namespace CatDesign\Forms\Models;
 
+use Lang;
 use Model;
+use October\Rain\Exception\ValidationException;
 
 /**
  * Plugin - Forms
@@ -10,12 +12,6 @@ use Model;
 class Field extends Model
 {
     use \October\Rain\Database\Traits\Validation;
-    use \October\Rain\Database\Traits\Sluggable;
-
-    /**
-     * @var string Sluggable params
-     */
-    protected $slugs = ['name' => 'label'];
 
 
     /**
@@ -41,6 +37,7 @@ class Field extends Model
      */
     public $rules = [
         'label' => 'required',
+        'name'  => 'required|unique:catdesign_fields|regex:#^[a-z+_]+$#'
     ];
 
 
@@ -84,23 +81,6 @@ class Field extends Model
         'updated_at'
     ];
 
-
-    /**
-     * Before create model event
-     */
-    public function beforeCreate() {
-        $this->codeGenerate();
-    }
-
-
-    /**
-     * Generate code for field
-     */
-    private function codeGenerate()
-    {
-        $new_name = str_replace('-', '_', $this->name);
-        $this->name = $new_name;
-    }
 
 
     /**

@@ -14,3 +14,7 @@
     - Fixed a bug with the absence of OrdersFormShopaholic
 1.0.5:
     - Big update. Macros have been added for more convenient and flexible rendering of forms
+1.0.6:
+    - The fields for entering the field code have been unblocked.
+    - Validations for the uniqueness of the code have been added, a regular expression has been introduced.
+    - Removed auto-generation of code from fields, now only manual input

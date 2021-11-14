@@ -15,7 +15,6 @@ fields:
         placeholder: 'Сгенерируется после создания'
         disabled: 1
         span: right
-        permissions: 'catdesign.forms.forms'
     is_hide_title:
         label: catdesign.forms::lang.fields.forms.is_hide_title.label
         type: checkbox

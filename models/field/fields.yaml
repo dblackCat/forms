@@ -10,8 +10,9 @@ fields:
     name:
         label: catdesign.forms::lang.fields.fields.name.label
         type: text
+        required: 1
         placeholder: catdesign.forms::lang.fields.fields.name.placeholder
-        disabled: 1
+        permissions: 'catdesign.forms.dev'
         span: right
     required:
         label: catdesign.forms::lang.fields.fields.required.label

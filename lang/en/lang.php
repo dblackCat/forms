@@ -267,7 +267,7 @@ return [
             ],
             'name' => [
                 'label'       => 'Code',
-                'placeholder' => 'Will be generated after creation'
+                'placeholder' => 'Only Latin letters and underscores'
             ],
             'required' => [
                 'label'       => 'Required to fill in',
@@ -360,7 +360,8 @@ return [
             'user_template'             => 'The field-Mail template for the user must be filled in, since you have activated the function-Send a response to the user.'
         ],
         'field_model' => [
-            'label' => 'Field - The name of the field must be filled in.'
+            'label'              => 'Field - The name of the field must be filled in.',
+            'unique_name_fields' => 'The field code must be unique within this form!'
         ],
         'forms_component' => [
             'api_user_id'   => 'The API_USER_ID for sending the contact to SendPulse is not specified.',
