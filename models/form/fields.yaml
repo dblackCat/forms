@@ -12,8 +12,8 @@ fields:
     code:
         label: catdesign.forms::lang.fields.forms.code.label
         type: text
-        placeholder: 'Сгенерируется после создания'
-        disabled: 1
+        placeholder: catdesign.forms::lang.fields.forms.code.placeholder
+        permissions: 'catdesign.forms.dev'
         span: right
     is_hide_title:
         label: catdesign.forms::lang.fields.forms.is_hide_title.label

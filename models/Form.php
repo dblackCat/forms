@@ -21,6 +21,23 @@ class Form extends Model
      */
     protected $slugs = ['code' => 'title'];
 
+
+    /**
+     * Implement Behaviors
+     * @var array
+     */
+    public $implement = [
+        '@RainLab.Translate.Behaviors.TranslatableModel',
+    ];
+
+
+    /**
+     * Translatable field support
+     * @var array
+     */
+    public $translatable = ['title', 'description', 'button_text'];
+
+
     /**
      * @var string Model table
      */
@@ -41,6 +58,7 @@ class Form extends Model
      */
     public $rules = [
         'title'                     => 'required',
+        'admin_template'            => 'required',
         'forward_email'             => 'required_if:is_forward,1',
         'sendpulse_address_list_id' => 'required_if:is_sendpulse,1',
         'user_template'             => 'required_if:is_answer,1'

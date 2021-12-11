@@ -1,7 +1,6 @@
 <?php namespace CatDesign\Forms\Models;
 
 use Lang;
-use Lovata\OrdersShopaholic\Models\OrderProperty;
 use Model;
 
 /**
@@ -45,16 +44,16 @@ class Settings extends Model
      */
     public function getDropdownOptions($fieldName, $value, $formData) : array
     {
-        $options = [null => Lang::get('catdesign.forms::lang.validation.settings_model.empty_dropdown')];
+        $options[null] = Lang::get('catdesign.forms::lang.validation.settings_model.empty_dropdown');
 
-        if (class_exists('OrderProperty')) {
-            $property_models = OrderProperty::get();
+        if (class_exists('Lovata\OrdersShopaholic\Models\OrderProperty')) {
+            $property_models = \Lovata\OrdersShopaholic\Models\OrderProperty::get();
 
             foreach ($property_models as $property) {
                 $options[$property->code] = $property->name;
             }
         } else {
-            $options[null] = 'Не установлен OrdersForShopaholic';
+            $options[null] = Lang::get('catdesign.forms::lang.validation.settings_model.not_found_orders_for_shopaholic');
         }
 
         return $options;

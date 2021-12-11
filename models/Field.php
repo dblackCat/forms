@@ -13,6 +13,21 @@ class Field extends Model
 {
     use \October\Rain\Database\Traits\Validation;
 
+    /**
+     * Implement Behaviors
+     * @var array
+     */
+    public $implement = [
+        '@RainLab.Translate.Behaviors.TranslatableModel',
+    ];
+
+
+    /**
+     * Translatable field support
+     * @var array
+     */
+    public $translatable = ['attribute[value]', 'attribute[placeholder]', 'comment', 'value_list'];
+
 
     /**
      * @var string table associated with the model

@@ -371,6 +371,7 @@ return [
         ],
         'settings_model' => [
             'empty_dropdown'                       => 'Не выбрано',
+            'not_found_orders_for_shopaholic'      => 'Не установлен OrdersForShopaholic',
             'sendpulse_email'                      => 'Поле - E-mail контакта SendPulse обязательно к заполнению, так как вы активировали функцию - Включить интеграцию с заказами Shopaholic.',
             'manager_emails'                       => 'Поле - E-mail адреса администраторов обязательно к заполнению.',
             'sendpulse_shopahilic_address_book_id' => 'Поле - ID адресной книги для заказов обязательно к заполнению, так как вы активировали функцию - Включить интеграцию с заказами Shopaholic.'

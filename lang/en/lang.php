@@ -371,6 +371,7 @@ return [
         ],
         'settings_model' => [
             'empty_dropdown'                       => 'Not selected',
+            'not_found_orders_for_shopaholic'      => 'Not found OrdersForShopaholic',
             'sendpulse_email'                      => 'The field-E-mail of the SendPulse contact is mandatory, since you have activated the function-Enable integration with Shopaholic orders.',
             'manager_emails'                       => 'The field-E-mail addresses of administrators must be filled in.',
             'sendpulse_shopahilic_address_book_id' => 'The - ID field of the address book for orders is mandatory, since you have activated the function-Enable integration with Shopaholic orders.'
