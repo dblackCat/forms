@@ -18,3 +18,9 @@
     - The fields for entering the field code have been unblocked.
     - Validations for the uniqueness of the code have been added, a regular expression has been introduced.
     - Removed auto-generation of code from fields, now only manual input
+1.0.7:
+    - Updated translations.
+    - Added support for the Rainlab.Translate plugin.
+    - Added validation to the required field of the Forms model - admin_template required.
+    - Fixed the error of checking the presence of the Lovata.OrdersForShopaholic plugin. This eliminated the error of the inability to integrate SendPulse for a Shopaholic.
+    - Correction of minor errors.
