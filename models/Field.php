@@ -52,7 +52,7 @@ class Field extends Model
      */
     public $rules = [
         'label' => 'required',
-        'name'  => 'required|unique:catdesign_fields|regex:#^[a-z+_]+$#'
+        'name'  => 'required|regex:#^[a-z+_]+$#'
     ];
 
 

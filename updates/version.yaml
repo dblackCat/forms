@@ -24,3 +24,5 @@
     - Added validation to the required field of the Forms model - admin_template required.
     - Fixed the error of checking the presence of the Lovata.OrdersForShopaholic plugin. This eliminated the error of the inability to integrate SendPulse for a Shopaholic.
     - Correction of minor errors.
+1.0.8:
+    - Remove unique field name validation
